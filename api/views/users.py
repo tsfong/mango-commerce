@@ -9,7 +9,7 @@ class SignUp(generics.CreateAPIView):
     # is not authenticated & we don't need any permissions to access it.
     authentication_classes = ()
     permission_classes = ()
-    
+   
     def post(self, request):
         # Create the user using the UserSerializer 
         created_user = UserSerializer(data=request.data['user'])
