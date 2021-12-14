@@ -1,5 +1,6 @@
 from django.urls import path
 from .views.users import SignUp, SignIn, SignOut, ChangePassword
+from .views.mango import MangoView
 from .views.mango import MangosView
 
 urlpatterns = [
@@ -7,5 +8,6 @@ urlpatterns = [
     path('sign-in/', SignIn.as_view(), name='sign-in'),
     path('sign-out/', SignOut.as_view(), name='sign-out'),
     path('mangos/', MangosView.as_view(), name='mangos'),
+    path('mangos/<int:pk>', MangoView.as_view(), name='mango'),
     path('change-password/', ChangePassword.as_view(), name='change-password'),
 ]
