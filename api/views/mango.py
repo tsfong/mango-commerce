@@ -48,7 +48,7 @@ class MangoView(APIView):
             raise PermissionDenied('Unauthorized, you do not own this mango')
         # Ensure the owner field is set to the current user's ID
         request.data['owner'] = request.user.id
-        updated_mango = MangoSerializer(mango, data=request.data)
+        updated_mango = MangoSerializer(mango, data=request.data, partial=True)
         if updated_mango.is_valid():
             updated_mango.save()
             return Response(updated_mango.data)
